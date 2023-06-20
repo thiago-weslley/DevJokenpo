@@ -37,7 +37,7 @@ body::after {
 
 img {
     width: 12rem;
-    filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, .4)) brightness(85%); 
+    filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, .4)) brightness(85%);
     transition: all .2s;
     animation: float 3s ease-in-out infinite;
 }
@@ -54,12 +54,14 @@ p {
     flex-direction: column;
     align-items: center;
     width: 30rem;
+    transition: .3s;
 }
 
 .container h1 {
     font-size: 6rem;
     text-shadow: 3px 2px 3px rgba(0, 0, 0, .5);
     margin-bottom: 4rem;
+    transition: .3s;
 }
 
 .container .hands-container {
@@ -99,4 +101,19 @@ p {
     display: flex;
     justify-content: space-between;
     text-align: center;
+}
+
+@media (min-width: 500px) {
+
+    img {
+        width: 13rem;
+    }
+
+    .container {
+        width: 35rem;
+    }
+
+    .container h1 {
+        font-size: 7rem;
+    }
 }
