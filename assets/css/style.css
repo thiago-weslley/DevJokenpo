@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
+@import url('./animation.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root {
+    font-size: 62.5%;
+    --bc-color: radial-gradient(circle, #8c8c8c, #848484, #7c7c7c, #757575, #6d6d6d);
+    --ff-body: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    font-size: 1.6rem;
+    background: var(--bc-color);
+    font-family: var(--ff-body);
+}
+
+img {
+    width: 12rem;
+    filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, .4)) brightness(85%); 
+    transition: all .2s;
+    animation: float 3s ease-in-out infinite;
+}
+
+p {
+    font-size: 1.8rem;
+}
+
+/* Container Styles */
+.container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+}
+
+.container h1 {
+    font-size: 6rem;
+    text-shadow: 3px 2px 3px rgba(0, 0, 0, .5);
+    margin-bottom: 4rem;
+}
+
+.container .hands-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-container {
+    cursor: pointer;
+    transform: scaleX(-1);
+}
+
+.left-container,
+.right-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.player-option,
+.enemy-option {
+    opacity: .65;
+}
+
+.player-option:hover {
+    opacity: 1;
+}
+
+.animate {
+    -webkit-animation: shake-right 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    animation: shake-right 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+.your-score {
+    margin-top: 2rem;
+}
