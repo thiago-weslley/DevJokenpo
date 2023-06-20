@@ -13,9 +13,29 @@ playerOptionsList.forEach(option => {
 
         option.setAttribute('data-selected', true)
 
-        enemyIa()
+        const optionPlayer = option.getAttribute('data-value')
+        const optionIa = enemyIa()
+
+        result(optionPlayer, optionIa)
     })
 })
+
+const enemyIa = () => {
+    clearSelectedOption(enemyOptionsList)
+
+    const optionIa = Math.floor(Math.random() * enemyOptionsList.length)
+    const optionIaSelected = enemyOptionsList[optionIa]
+
+    optionIaSelected.style.opacity = '1'
+    optionIaSelected.setAttribute('data-selected', 'true')
+
+    optionIaSelected.classList.add('animate')
+    setTimeout(() => {
+        optionIaSelected.classList.remove('animate')
+    }, 600)
+
+    return optionIaSelected.getAttribute('data-value')
+}
 
 const clearSelectedOption = (array) => {
     array.forEach(element => {
@@ -24,16 +44,24 @@ const clearSelectedOption = (array) => {
     })
 }
 
-const enemyIa = () => {
-    clearSelectedOption(enemyOptionsList)
+const result = (optionPlayer, optionIa) => {
+    const playerScoreText = document.querySelector('.your-score')
+    const computerScoreText = document.querySelector('.computer-score')
+    let playerScore = parseInt(playerScoreText.innerHTML)
+    let computerScore = parseInt(computerScoreText.innerHTML)
 
-    const optionIa = Math.floor(Math.random() * enemyOptionsList.length)
-    const optionIaSelected = enemyOptionsList[optionIa]
-
-    optionIaSelected.classList.add('animate')
-    setTimeout(() => {
-        optionIaSelected.classList.remove('animate')
-    }, 600)
-
-    optionIaSelected.style.opacity = '1'
+    if ((optionPlayer === 'stone' && optionIa === 'paper') ||
+        (optionPlayer === 'paper' && optionIa === 'scissor') ||
+        (optionPlayer === 'scissor' && optionIa === 'stone')
+    ) {
+        computerScore++
+        computerScoreText.innerHTML = computerScore
+    } else if (
+        (optionPlayer === 'stone' && optionIa === 'scissor') ||
+        (optionPlayer === 'paper' && optionIa === 'stone') ||
+        (optionPlayer === 'scissor' && optionIa === 'paper')
+    ) {
+        playerScore++
+        playerScoreText.innerHTML = playerScore
+    }
 }
