@@ -2,7 +2,7 @@
 
 ## 📄 Descrição
 
-Este projeto consiste em um webisite do jogo Jokenpo onde o usuário enfrenta a máquina.
+Este projeto consiste em um website do jogo Jokenpo onde o usuário enfrenta a máquina.
 
 #### Instruções de uso:
 
